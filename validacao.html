@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema De Chat Pâmela Sntos</title>
+    <link rel="icon" type="C:\Users\denison.santos\Downloads\P.png" href="P.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #1b2a45; /* Fundo azul claro */
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #4CAF50; /* Verde */
+            color: white;
+            border-radius: 10px;
+        }
+        .header h1 {
+            font-size: 24px;
+            color: white;
+        }
+        .rocket {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.5s ease;
+        }
+        .launch {
+            transform: translateY(-100px) rotate(45deg);
+        }
+        #counter {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            background-color: #23395d; /* Azul */
+            color: white;
+            border-radius: 5px;
+        }
+        .tab-container {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-right: 10px;
+        }
+        .tab.active {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ffffff;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .content {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        textarea {
+            width: calc(100% - 80px);
+            height: 50px;
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            resize: none;
+        }
+        .form-container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        /* Estilo base das abas */
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #ddd; /* Cor padrão das abas */
+    border: 1px solid #ccc;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Aba ativa com cor diferente */
+.tab.active {
+    background-color: #007bff; /* Cor azul para aba ativa */
+    color: white; /* Cor do texto na aba ativa */
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <!-- Contador de Atendimentos -->
+    <div class="header">
+        <h1>Atendimentos: <span id="counter">0</span></h1>
+        <button onclick="increaseCounter()">Atendimento</button>
+        <img id="rocket" class="rocket" src="https://img.icons8.com/ios/50/ffffff/rocket.png" alt="Foguete">
+    </div>
+
+  <!-- Abas -->
+<div class="tab-container">
+    <div class="tab active" onclick="openTab('tab1', this)">Script Conversa</div>
+    <div class="tab" onclick="openTab('tab2', this)">Remoção de Portas</div>
+    <div class="tab" onclick="openTab('tab3', this)">AT-1</div>
+    <div class="tab" onclick="openTab('tab4', this)">AT-2</div>
+    <div class="tab" onclick="openTab('tab5', this)">AT-3</div>
+    <div class="tab" onclick="openTab('tab6', this)">AT-4</div>
+    <div class="tab" onclick="openTab('tab7', this)">AT-5</div>
+</div>
+
+    <!-- Conteúdo da aba Script Conversa -->
+    <div id="tab1" class="tab-content active">
+        <div class="content">
+            <label>🌅 Bom dia</label>
+            <textarea id="text1">Olá, bom dia! Meu nome é Pâmela e serei responsável pelo seu atendimento. 💻 Poderia me informar o código do cliente 🆔? Caso seja uma validação, algum equipamento foi retirado? </textarea>
+            <button onclick="copyToClipboard('text1')">Copiar</button>
+        </div>
+
+        <div class="content">
+            <label>📌 Boa tarde</label>
+            <textarea id="text2">Olá, boa tarde! Meu nome é Pâmela e serei responsável pelo seu atendimento. 💻 Poderia me informar o código do cliente 🆔? Caso seja uma validação, algum equipamento foi retirado?</textarea>
+            <button onclick="copyToClipboard('text2')">Copiar</button>
+        </div>
+
+        <div class="content">
+            <label>📋 Finalização </label>
+            <textarea id="text3">Identificação na CTO, Instalação interna, Lacre da ONU, Testes realizados dentro dos padrões.</textarea>
+            <button onclick="copyToClipboard('text3')">Copiar</button>
+        </div>
+
+        <div class="content">
+            <label>🏠 Digimesh Casa conectada</label>
+            <textarea id="text4">Instalação Digimesh e instalação principal dentro dos padrões, RSSI agent 5G/- dBm</textarea>
+            <button onclick="copyToClipboard('text4')">Copiar</button>
+        </div>
+
+        <div class="content">
+            <label>⚠️ Painel</label>
+            <textarea id="text5">O cliente optou por não fixar os equipamentos, solicitando que ficassem sobre o móvel (   ). Cliente segue orientado em caso de danos à fibra, poderá ser cobrada uma taxa de R$50 pela visita ou o valor total do equipamento caso seja danificado, se necessário. Cliente ciente.</textarea>
+            <button onclick="copyToClipboard('text5')">Copiar</button>
+        </div>
+
+        <div class="content">
+            <label>🙏 Saudação simples</label>
+            <textarea id="text6">Olá, tudo bem? Meu nome é Pâmela e serei responsável pelo seu atendimento💻.</textarea>
+            <button onclick="copyToClipboard('text6')">Copiar</button>
+        </div>
+
+        <div class="content">
+            <label>📍 OBS: Remoção CTO GEOGRID</label>
+            <textarea id="text7">Porta livre DROP (   ) removido pela Equipe Remoção, data  .</textarea>
+            <button onclick="copyToClipboard('text7')">Copiar</button>
+        </div>
+
+<div class="content">
+            <label>🛠 OBS: Remoção - CTO</label>
+            <textarea id="text8">Porta removida dentro dos padrões.</textarea>
+            <button onclick="copyToClipboard('text8')">Copiar</button>
+        </div>
+
+<div class="content">
+         <label>  OBS: GEOGRID </label>
+            <textarea id="text9">Não foi efetuada remoção do drop, descrição "SEM ALIMENTAÇÃO, possui ONU conectada. </textarea>
+            <button onclick="copyToClipboard('text9')">Copiar</button>
+        </div>
+        
+        <div class="content">
+         <label>😀 Agradecimento</label>
+            <textarea id="text10">Obrigada, bom trabalho!🫡</textarea>
+            <button onclick="copyToClipboard('text10')">Copiar</button>
+        </div>
+
+        <!-- Área de escrita personalizada -->
+        <div class="content">
+            <textarea class="custom-textarea" id="text-custom" placeholder="Digite seu texto aqui..."></textarea>
+            <button onclick="copyToClipboard('text-custom')">Copiar</button>
+        </div>
+    </div>
+
+            <div class="button-container">
+            </div>
+  
+    <!-- Conteúdo da aba Remoção de Portas -->
+    <div id="tab2" class="tab-content">
+        <h2>Remoção de Portas</h2>
+        <form id="remo">
+            <div class="form-group">
+                <label for="protocolo">Protocolo:</label>
+                <input type="text" id="protocolo">
+            </div>
+            <div class="form-group">
+                <label for="tecnico">Técnico:</label>
+                <input type="text" id="tecnico">
+            </div>
+            <div class="form-group">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo">
+            </div>
+            <div class="form-group">
+                <label for="cliente">Cliente:</label>
+                <input type="text" id="cliente">
+           
+            </div>
+            <div class="form-group">
+                <label for="CTO">CTO:</label>
+                <input type="text" id="CTO">
+            </div>
+            <div class="form-group">
+                <label for="portaremovida">Porta removida:</label>
+                <input type="text" id="portaremovida">
+            </div>
+            <div class="form-group">
+                <label for="observação">Observação:</label>
+                <input type="text" id="observação">
+            </div>
+            <div class="button-container">
+                <button type="button" onclick="copiarDados(event)">Copiar Dados</button>
+                <button type="button" onclick="apagarDados()">Apagar Dados</button>
+            </div>
+        </div>
+    </div> 
+    
+    
+<!-- ABA AT-1 -->
+<div id="tab3" class="tab-content">
+    <h2>Validação de Atendimento 1</h2>
+    <form id="atendimento1">
+        <div class="form-group">
+            <label for="protocoloAT1">Protocolo:</label>
+            <input type="text" id="protocoloAT1">
+        </div>
+        <div class="form-group">
+            <label for="codigoAT1">Código:</label>
+            <input type="text" id="codigoAT1">
+        </div>
+        <div class="form-group">
+            <label for="clienteAT1">Cliente:</label>
+            <input type="text" id="clienteAT1">
+        </div>
+        <div class="form-group">
+            <label for="sinalONUAT1">Sinal ONU:</label>
+            <input type="text" id="sinalONUAT1">
+        </div>
+        <div class="form-group">
+            <label for="antigaCTOAT1">Antiga CTO:</label>
+            <input type="text" id="antigaCTOAT1">
+        </div>
+        <div class="form-group">
+            <label for="acessoRoteadorAT1">Acesso ao roteador:</label>
+            <input type="text" id="acessoRoteadorAT1">
+        </div>
+        <div class="form-group">
+            <label for="senhaAT1">Senha:</label>
+            <input type="text" id="senhaAT1">
+        </div>
+        <div class="form-group">
+            <label for="observacaoAT1">Observação:</label>
+            <input type="text" id="observacaoAT1">
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="copiarDados('atendimento1')">Copiar Dados</button>
+            <button type="button" onclick="apagarDados('atendimento1')">Apagar Dados</button>
+        </div>
+    </form>
+</div>
+
+<!-- ABA AT-2 -->
+<div id="tab4" class="tab-content">
+    <h2>Validação de Atendimento 2</h2>
+    <form id="atendimento2">
+        <div class="form-group">
+            <label for="protocoloAT2">Protocolo:</label>
+            <input type="text" id="protocoloAT2">
+        </div>
+        <div class="form-group">
+            <label for="codigoAT2">Código:</label>
+            <input type="text" id="codigoAT2">
+        </div>
+        <div class="form-group">
+            <label for="clienteAT2">Cliente:</label>
+            <input type="text" id="clienteAT2">
+        </div>
+        <div class="form-group">
+            <label for="sinalONUAT2">Sinal ONU:</label>
+            <input type="text" id="sinalONUAT2">
+        </div>
+        <div class="form-group">
+            <label for="antigaCTOAT2">Antiga CTO:</label>
+            <input type="text" id="antigaCTOAT2">
+        </div>
+        <div class="form-group">
+            <label for="acessoRoteadorAT2">Acesso ao roteador:</label>
+            <input type="text" id="acessoRoteadorAT2">
+        </div>
+        <div class="form-group">
+            <label for="senhaAT2">Senha:</label>
+            <input type="text" id="senhaAT2">
+        </div>
+        <div class="form-group">
+            <label for="observacaoAT2">Observação:</label>
+            <input type="text" id="observacaoAT2">
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="copiarDados('atendimento2')">Copiar Dados</button>
+            <button type="button" onclick="apagarDados('atendimento2')">Apagar Dados</button>
+        </div>
+    </form>
+</div>
+
+<!-- ABA AT-3 -->
+<div id="tab5" class="tab-content">
+    <h2>Validação de Atendimento 3</h2>
+    <form id="atendimento3">
+        <div class="form-group">
+            <label for="protocoloAT3">Protocolo:</label>
+            <input type="text" id="protocoloAT3">
+        </div>
+        <div class="form-group">
+            <label for="codigoAT3">Código:</label>
+            <input type="text" id="codigoAT3">
+        </div>
+        <div class="form-group">
+            <label for="clienteAT3">Cliente:</label>
+            <input type="text" id="clienteAT3">
+        </div>
+        <div class="form-group">
+            <label for="sinalONUAT3">Sinal ONU:</label>
+            <input type="text" id="sinalONUAT3">
+        </div>
+        <div class="form-group">
+            <label for="antigaCTOAT3">Antiga CTO:</label>
+            <input type="text" id="antigaCTOAT3">
+        </div>
+        <div class="form-group">
+            <label for="acessoRoteadorAT3">Acesso ao roteador:</label>
+            <input type="text" id="acessoRoteadorAT3">
+        </div>
+        <div class="form-group">
+            <label for="senhaAT3">Senha:</label>
+            <input type="text" id="senhaAT3">
+        </div>
+        <div class="form-group">
+            <label for="observacaoAT3">Observação:</label>
+            <input type="text" id="observacaoAT3">
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="copiarDados('atendimento3')">Copiar Dados</button>
+            <button type="button" onclick="apagarDados('atendimento3')">Apagar Dados</button>
+        </div>
+    </form>
+</div>
+
+<!-- ABA AT-4 -->
+<div id="tab6" class="tab-content">
+    <h2>Validação de Atendimento 4</h2>
+    <form id="atendimento4">
+        <div class="form-group">
+            <label for="protocoloAT4">Protocolo:</label>
+            <input type="text" id="protocoloAT4">
+        </div>
+        <div class="form-group">
+            <label for="codigoAT4">Código:</label>
+            <input type="text" id="codigoAT4">
+        </div>
+        <div class="form-group">
+            <label for="clienteAT4">Cliente:</label>
+            <input type="text" id="clienteAT4">
+        </div>
+        <div class="form-group">
+            <label for="sinalONUAT4">Sinal ONU:</label>
+            <input type="text" id="sinalONUAT4">
+        </div>
+        <div class="form-group">
+            <label for="antigaCTOAT4">Antiga CTO:</label>
+            <input type="text" id="antigaCTOAT4">
+        </div>
+        <div class="form-group">
+            <label for="acessoRoteadorAT4">Acesso ao roteador:</label>
+            <input type="text" id="acessoRoteadorAT4">
+        </div>
+        <div class="form-group">
+            <label for="senhaAT4">Senha:</label>
+            <input type="text" id="senhaAT4">
+        </div>
+        <div class="form-group">
+            <label for="observacaoAT4">Observação:</label>
+            <input type="text" id="observacaoAT4">
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="copiarDados('atendimento4')">Copiar Dados</button>
+            <button type="button" onclick="apagarDados('atendimento4')">Apagar Dados</button>
+        </div>
+    </form>
+</div>
+
+<!-- ABA AT-5 -->
+<div id="tab7" class="tab-content">
+    <h2>Validação de Atendimento 5</h2>
+    <form id="atendimento5">
+        <div class="form-group">
+            <label for="protocoloAT5">Protocolo:</label>
+            <input type="text" id="protocoloAT5">
+        </div>
+        <div class="form-group">
+            <label for="codigoAT5">Código:</label>
+            <input type="text" id="codigoAT5">
+        </div>
+        <div class="form-group">
+            <label for="clienteAT5">Cliente:</label>
+            <input type="text" id="clienteAT5">
+        </div>
+        <div class="form-group">
+            <label for="sinalONUAT5">Sinal ONU:</label>
+            <input type="text" id="sinalONUAT5">
+        </div>
+        <div class="form-group">
+            <label for="antigaCTOAT5">Antiga CTO:</label>
+            <input type="text" id="antigaCTOAT5">
+        </div>
+        <div class="form-group">
+            <label for="acessoRoteadorAT5">Acesso ao roteador:</label>
+            <input type="text" id="acessoRoteadorAT5">
+        </div>
+        <div class="form-group">
+            <label for="senhaAT5">Senha:</label>
+            <input type="text" id="senhaAT5">
+        </div>
+        <div class="form-group">
+            <label for="observacaoAT5">Observação:</label>
+            <input type="text" id="observacaoAT5">
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="copiarDados('atendimento5')">Copiar Dados</button>
+            <button type="button" onclick="apagarDados('atendimento5')">Apagar Dados</button>
+        </div>
+    </form>
+</div>
+
+    <script>
+        let counter = 0;
+
+// Função para aumentar o contador e iniciar a animação do foguete
+function increaseCounter() {
+    counter++;
+    document.getElementById("counter").innerText = counter;
+    launchRocket();
+}
+
+// Função para lançar a animação do foguete
+function launchRocket() {
+    const rocket = document.getElementById("rocket");
+    if (rocket) {
+        rocket.classList.add("launch");
+        setTimeout(() => {
+            rocket.classList.remove("launch");
+        }, 500);
+    }
+}
+
+// Função para copiar o conteúdo de um campo específico para a área de transferência
+function copyToClipboard(textId) {
+    const textArea = document.getElementById(textId);
+    if (textArea) {
+        textArea.select();
+        document.execCommand("copy");
+
+        // Criar a mensagem de alerta personalizada
+        let alertBox = document.createElement("div");
+        alertBox.innerText = "Texto copiado!";
+        alertBox.style.position = "fixed";
+        alertBox.style.top = "10px";
+        alertBox.style.left = "50%";
+        alertBox.style.transform = "translateX(-50%)";
+        alertBox.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+        alertBox.style.color = "white";
+        alertBox.style.padding = "10px 20px";
+        alertBox.style.borderRadius = "5px";
+        alertBox.style.zIndex = "1000";
+        alertBox.style.fontSize = "16px";
+
+        // Adicionar a mensagem ao corpo do documento
+        document.body.appendChild(alertBox);
+
+        // Remover a mensagem automaticamente após 3 segundos
+        let timeout = setTimeout(() => {
+            alertBox.remove();
+        }, 3000);
+
+        // Remover a mensagem ao clicar na tela
+        alertBox.addEventListener("click", () => {
+            clearTimeout(timeout);
+            alertBox.remove();
+        });
+    }
+}
+
+// Função para copiar os dados preenchidos no formulário da aba ativa
+function copiarDados() {
+    const abaAtiva = document.querySelector(".tab-content.active");
+    if (!abaAtiva) return alert("Nenhuma aba ativa!");
+
+    let dadosParaCopiar = "***** SEGUE A VALIDAÇÃO *****\n\n";
+    dadosParaCopiar += `Conferente: Pâmela Santos\n`;
+
+    // Pega os valores de todos os inputs dentro da aba ativa
+    abaAtiva.querySelectorAll("input").forEach(input => {
+        const label = abaAtiva.querySelector(`label[for='${input.id}']`);
+        if (label) {
+            const textoLabel = label.innerText.trim().replace(/:$/, ""); // Remove ":" extra
+            dadosParaCopiar += `${textoLabel}: ${input.value}\n`;
+        }
+    });
+
+    // Copiar para a área de transferência
+    navigator.clipboard.writeText(dadosParaCopiar)
+        .then(() => {
+            mostrarAviso("✅ Dados copiados com sucesso!");
+        })
+        .catch(() => {
+            mostrarAviso("❌ Erro ao copiar os dados.");
+        });
+}
+
+function mostrarAviso(mensagem) {
+    // Remove qualquer aviso existente
+    let avisoExistente = document.getElementById("aviso-copiado");
+    if (avisoExistente) {
+        avisoExistente.remove();
+    }
+
+    // Cria o elemento de aviso
+    let aviso = document.createElement("div");
+    aviso.id = "aviso-copiado";
+    aviso.innerText = mensagem;
+    aviso.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        cursor: pointer;
+    `;
+
+    // Adiciona à página
+    document.body.appendChild(aviso);
+
+    // Remove o aviso após 3 segundos
+    setTimeout(() => {
+        aviso.remove();
+    }, 3000);
+
+    // Permite remover o aviso ao clicar nele ou em qualquer lugar da tela
+    aviso.addEventListener("click", () => aviso.remove());
+    document.addEventListener("click", () => aviso.remove(), { once: true });
+}
+
+
+// Função para apagar os dados do formulário da aba ativa
+function apagarDados() {
+    const abaAtiva = document.querySelector(".tab-content.active");
+    if (!abaAtiva) return alert("Nenhuma aba ativa!");
+
+    abaAtiva.querySelectorAll("input").forEach(input => input.value = "");
+    alert("Todos os campos foram apagados!");
+}
+
+// Função para alternar entre abas
+function openTab(tabId, element) {
+    // Remover a classe 'active' de todas as abas e conteúdos
+    document.querySelectorAll(".tab-content").forEach(tab => tab.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+
+    // Ativar a aba e seu botão correspondente
+    const selectedTab = document.getElementById(tabId);
+    if (selectedTab) selectedTab.classList.add("active");
+
+    if (element) {
+        element.classList.add("active");
+    }
+}
+
+// Exibir a primeira aba ao carregar a página
+document.addEventListener("DOMContentLoaded", () => {
+    openTab("tab1", document.querySelector(".tab.active")); // Primeira aba ativa
+});
+
+
+    </script>
+
+</body>
+</html>
