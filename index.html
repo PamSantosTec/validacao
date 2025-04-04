@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema De Chat Pâmela Sntos</title>
+    <title>Validação</title>
     <link rel="icon" type="C:\Users\denison.santos\Downloads\P.png" href="P.png">
     <style>
         body {
@@ -150,11 +150,11 @@
 <div class="tab-container">
     <div class="tab active" onclick="openTab('tab1', this)">Script Conversa</div>
     <div class="tab" onclick="openTab('tab2', this)">Remoção de Portas</div>
-    <div class="tab" onclick="openTab('tab3', this)">AT-1</div>
-    <div class="tab" onclick="openTab('tab4', this)">AT-2</div>
-    <div class="tab" onclick="openTab('tab5', this)">AT-3</div>
-    <div class="tab" onclick="openTab('tab6', this)">AT-4</div>
-    <div class="tab" onclick="openTab('tab7', this)">AT-5</div>
+    <div class="tab" onclick="openTab('tab3', this)">AT1</div>
+    <div class="tab" onclick="openTab('tab4', this)">AT2</div>
+    <div class="tab" onclick="openTab('tab5', this)">AT3</div>
+    <div class="tab" onclick="openTab('tab6', this)">AT4</div>
+    <div class="tab" onclick="openTab('tab7', this)">AT5</div>
 </div>
 
     <!-- Conteúdo da aba Script Conversa -->
@@ -169,7 +169,7 @@
             <label>📌 Boa tarde</label>
             <textarea id="text2">Olá, boa tarde! Meu nome é Pâmela e serei responsável pelo seu atendimento. 💻 Poderia me informar o código do cliente 🆔? Caso seja uma validação, algum equipamento foi retirado?</textarea>
             <button onclick="copyToClipboard('text2')">Copiar</button>
-        </div>
+     </div>
 
         <div class="content">
             <label>📋 Finalização </label>
@@ -201,22 +201,28 @@
             <button onclick="copyToClipboard('text7')">Copiar</button>
         </div>
 
-<div class="content">
+        <div class="content">
             <label>🛠 OBS: Remoção - CTO</label>
             <textarea id="text8">Porta removida dentro dos padrões.</textarea>
             <button onclick="copyToClipboard('text8')">Copiar</button>
         </div>
 
-<div class="content">
-         <label>  OBS: GEOGRID </label>
-            <textarea id="text9">Não foi efetuada remoção do drop, descrição "SEM ALIMENTAÇÃO, possui ONU conectada. </textarea>
+        <div class="content">
+            <label>🛠 OBS: Remoção - CTO</label>
+            <textarea id="text9">Porta removida dentro dos padrões.</textarea>
             <button onclick="copyToClipboard('text9')">Copiar</button>
+        </div>
+
+<div class="content">
+         <label> 🛠 OBS: GEOGRID </label>
+            <textarea id="text10">Não foi efetuada remoção do drop, descrição "SEM ALIMENTAÇÃO, possui ONU conectada,drop conectado sem identificação. </textarea>
+            <button onclick="copyToClipboard('text10')">Copiar</button>
         </div>
         
         <div class="content">
          <label>😀 Agradecimento</label>
-            <textarea id="text10">Obrigada, bom trabalho!🫡</textarea>
-            <button onclick="copyToClipboard('text10')">Copiar</button>
+            <textarea id="text11">Obrigada, bom trabalho!🫡</textarea>
+            <button onclick="copyToClipboard('text11')">Copiar</button>
         </div>
 
         <!-- Área de escrita personalizada -->
@@ -230,44 +236,47 @@
             </div>
   
     <!-- Conteúdo da aba Remoção de Portas -->
-    <div id="tab2" class="tab-content">
-        <h2>Remoção de Portas</h2>
-        <form id="remo">
-            <div class="form-group">
-                <label for="protocolo">Protocolo:</label>
-                <input type="text" id="protocolo">
-            </div>
-            <div class="form-group">
-                <label for="tecnico">Técnico:</label>
-                <input type="text" id="tecnico">
-            </div>
-            <div class="form-group">
-                <label for="codigo">Código:</label>
-                <input type="text" id="codigo">
-            </div>
-            <div class="form-group">
-                <label for="cliente">Cliente:</label>
-                <input type="text" id="cliente">
-           
-            </div>
-            <div class="form-group">
-                <label for="CTO">CTO:</label>
-                <input type="text" id="CTO">
-            </div>
-            <div class="form-group">
-                <label for="portaremovida">Porta removida:</label>
-                <input type="text" id="portaremovida">
-            </div>
-            <div class="form-group">
-                <label for="observação">Observação:</label>
-                <input type="text" id="observação">
-            </div>
-            <div class="button-container">
-                <button type="button" onclick="copiarDados(event)">Copiar Dados</button>
-                <button type="button" onclick="apagarDados()">Apagar Dados</button>
-            </div>
+<div id="tab2" class="tab-content">
+    <h2>Remoção de Portas</h2>
+    <form id="remo">
+        <div class="form-group">
+            <label for="protocolo">Protocolo:</label>
+            <input type="text" id="protocolo">
         </div>
-    </div> 
+        <div class="form-group">
+            <label for="tecnico">Técnico:</label>
+            <select id="tecnico">
+                <option value="Lucínio Teixeira">Lucínio Teixeira</option>
+                <option value="Vinícius Kober">Vinícius Kober</option>
+                <option value="Anderson">Anderson</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="codigo">Código:</label>
+            <input type="text" id="codigo">
+        </div>
+        <div class="form-group">
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente">
+        </div>
+        <div class="form-group">
+            <label for="CTO">CTO:</label>
+            <input type="text" id="CTO">
+        </div>
+        <div class="form-group">
+            <label for="portaremovida">Porta Removida:</label>
+            <input type="text" id="portaremovida">
+        </div>
+        <div class="form-group">
+            <label for="observacao">Observação:</label>
+            <input type="text" id="observacao">
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="copiarDados('remo')">Copiar Dados</button>
+            <button type="button" onclick="apagarDados()">Apagar Dados</button>
+        </div>
+    </form>
+</div>
     
     
 <!-- ABA AT-1 -->
@@ -277,6 +286,10 @@
         <div class="form-group">
             <label for="protocoloAT1">Protocolo:</label>
             <input type="text" id="protocoloAT1">
+        </div>
+        <div class="form-group">
+            <label for="TecnicoT1">Técnico:</label>
+            <input type="text" id="TecnicoT1">
         </div>
         <div class="form-group">
             <label for="codigoAT1">Código:</label>
@@ -319,7 +332,11 @@
     <form id="atendimento2">
         <div class="form-group">
             <label for="protocoloAT2">Protocolo:</label>
-            <input type="text" id="protocoloAT2">
+            <input type="text" id="protocoloAT2">    
+        </div>
+        <div class="form-group">
+            <label for="TecnicoT2">Técnico:</label>
+            <input type="text" id="TecnicoT2">
         </div>
         <div class="form-group">
             <label for="codigoAT2">Código:</label>
@@ -365,6 +382,10 @@
             <input type="text" id="protocoloAT3">
         </div>
         <div class="form-group">
+            <label for="TecnicoT3">Técnico:</label>
+            <input type="text" id="TecnicoT3">
+        </div>
+        <div class="form-group">
             <label for="codigoAT3">Código:</label>
             <input type="text" id="codigoAT3">
         </div>
@@ -408,6 +429,10 @@
             <input type="text" id="protocoloAT4">
         </div>
         <div class="form-group">
+            <label for="TecnicoT4">Técnico:</label>
+            <input type="text" id="TecnicoT4">
+        </div>
+        <div class="form-group">
             <label for="codigoAT4">Código:</label>
             <input type="text" id="codigoAT4">
         </div>
@@ -449,6 +474,10 @@
         <div class="form-group">
             <label for="protocoloAT5">Protocolo:</label>
             <input type="text" id="protocoloAT5">
+        </div>
+        <div class="form-group">
+            <label for="TecnicoT5">Técnico:</label>
+            <input type="text" id="TecnicoT5">
         </div>
         <div class="form-group">
             <label for="codigoAT5">Código:</label>
@@ -544,16 +573,16 @@ function copyToClipboard(textId) {
 }
 
 // Função para copiar os dados preenchidos no formulário da aba ativa
-function copiarDados() {
-    const abaAtiva = document.querySelector(".tab-content.active");
-    if (!abaAtiva) return alert("Nenhuma aba ativa!");
+function copiarDados(formId) {
+    const formulario = document.getElementById(formId);
+    if (!formulario) return alert("Erro: Formulário não encontrado!");
 
     let dadosParaCopiar = "***** SEGUE A VALIDAÇÃO *****\n\n";
     dadosParaCopiar += `Conferente: Pâmela Santos\n`;
 
-    // Pega os valores de todos os inputs dentro da aba ativa
-    abaAtiva.querySelectorAll("input").forEach(input => {
-        const label = abaAtiva.querySelector(`label[for='${input.id}']`);
+    // Pega os valores de todos os inputs e selects dentro do formulário
+    formulario.querySelectorAll("input, select").forEach(input => {
+        const label = formulario.querySelector(`label[for='${input.id}']`);
         if (label) {
             const textoLabel = label.innerText.trim().replace(/:$/, ""); // Remove ":" extra
             dadosParaCopiar += `${textoLabel}: ${input.value}\n`;
@@ -570,14 +599,13 @@ function copiarDados() {
         });
 }
 
+
+// Função para exibir um aviso na tela
 function mostrarAviso(mensagem) {
     // Remove qualquer aviso existente
     let avisoExistente = document.getElementById("aviso-copiado");
-    if (avisoExistente) {
-        avisoExistente.remove();
-    }
+    if (avisoExistente) avisoExistente.remove();
 
-    // Cria o elemento de aviso
     let aviso = document.createElement("div");
     aviso.id = "aviso-copiado";
     aviso.innerText = mensagem;
@@ -606,22 +634,27 @@ function mostrarAviso(mensagem) {
 
     // Permite remover o aviso ao clicar nele ou em qualquer lugar da tela
     aviso.addEventListener("click", () => aviso.remove());
-    document.addEventListener("click", () => aviso.remove(), { once: true });
 }
-
 
 // Função para apagar os dados do formulário da aba ativa
 function apagarDados() {
     const abaAtiva = document.querySelector(".tab-content.active");
     if (!abaAtiva) return alert("Nenhuma aba ativa!");
 
-    abaAtiva.querySelectorAll("input").forEach(input => input.value = "");
+    abaAtiva.querySelectorAll("input, select").forEach(input => {
+        if (input.tagName === "SELECT") {
+            input.selectedIndex = 0;
+        } else {
+            input.value = "";
+        }
+    });
+
     alert("Todos os campos foram apagados!");
 }
 
 // Função para alternar entre abas
 function openTab(tabId, element) {
-    // Remover a classe 'active' de todas as abas e conteúdos
+    // Remover a classe 'active' de todas as abas e botões
     document.querySelectorAll(".tab-content").forEach(tab => tab.classList.remove("active"));
     document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
 
@@ -639,8 +672,7 @@ document.addEventListener("DOMContentLoaded", () => {
     openTab("tab1", document.querySelector(".tab.active")); // Primeira aba ativa
 });
 
-
-    </script>
+</script>
 
 </body>
 </html>
